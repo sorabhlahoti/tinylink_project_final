@@ -1,0 +1,65 @@
+commit 6a7f8b9c2d3e4f5a6b7c8d9e0f1a2b3c4d5e6f7g
+Author: Developer <dev@tinylink.com>
+Date:   Mon Jan 15 14:30:00 2024 -0800
+feat: Add AI-powered vanity code suggestions
+
+- Implemented /api/ai/suggest-code endpoint
+- Added heuristic-based code generation
+- Documented LLM integration process
+- Added tests for AI service
+
+commit 5b6c7d8e9f0a1b2c3d4e5f6a7b8c9d0e1f2a3b4c
+Author: Developer <dev@tinylink.com>
+Date:   Mon Jan 15 12:15:00 2024 -0800
+feat: Implement detailed analytics and CSV export
+
+- Added click history with 7-day sparkline data
+- Implemented device breakdown tracking
+- Created CSV export endpoint
+- Added top referrers analytics
+
+commit 4a5b6c7d8e9f0a1b2c3d4e5f6a7b8c9d0e1f2a3b
+Author: Developer <dev@tinylink.com>
+Date:   Mon Jan 15 10:00:00 2024 -0800
+feat: Add soft delete and reactivation support
+
+- Implemented soft delete with is_active flag
+- Added reactivation flow for deleted links
+- Returns 200 on reactivation vs 201 on new creation
+- Updated tests to cover reactivation scenarios
+
+commit 3a4b5c6d7e8f9a0b1c2d3e4f5a6b7c8d9e0f1a2b
+Author: Developer <dev@tinylink.com>
+Date:   Sun Jan 14 16:45:00 2024 -0800
+feat: Build responsive frontend with React and Tailwind
+
+- Created Dashboard component with search and sort
+- Implemented CreateLinkModal with validation
+- Added StatsPage with interactive charts
+- Added confetti animation and toast notifications
+- Implemented copy-to-clipboard functionality
+
+commit 2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0a1b
+Author: Developer <dev@tinylink.com>
+Date:   Sun Jan 14 14:20:00 2024 -0800
+
+feat: Implement redirect with transactional click tracking
+
+- Added race-safe redirect with SELECT FOR UPDATE
+- Implemented click logging with referrer and user agent
+- Created clicks table for detailed analytics
+- Added last_clicked timestamp update
+
+commit 1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d7e8f9a0b
+Author: Developer <dev@tinylink.com>
+Date:   Sun Jan 14 10:00:00 2024 -0800
+
+feat: Initial TinyLink API implementation
+
+- Set up Express server with TypeScript
+- Created PostgreSQL schema with links table
+- Implemented POST /api/links endpoint
+- Added GET /api/links and GET /:code endpoints
+- Configured security middleware (helmet, CORS, rate limiting)
+- Added input validation and error handling
+- Created comprehensive test suite with Jest and Supertest
