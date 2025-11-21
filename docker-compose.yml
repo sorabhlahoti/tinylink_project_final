@@ -1,0 +1,41 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:14-alpine
+    container_name: tinylink-postgres
+    environment:
+      POSTGRES_USER: tinylink
+      POSTGRES_PASSWORD: tinylink_password
+      POSTGRES_DB: tinylink
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./backend/migrations/init.sql:/docker-entrypoint-initdb.d/init.sql
+    healthcheck:
+      test: [ "CMD-SHELL", "pg_isready -U tinylink" ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: tinylink-backend
+    ports:
+      - "3000:3000"
+    environment:
+      DATABASE_URL: postgresql://tinylink:tinylink_password@postgres:5432/tinylink
+      BASE_URL: http://localhost:3000
+      NODE_ENV: production
+      JWT_SECRET: dev-secret-change-in-production
+      PORT: 3000
+    depends_on:
+      postgres:
+        condition: service_healthy
+    restart: unless-stopped
+
+volumes:
+  postgres_data:
